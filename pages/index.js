@@ -4,6 +4,7 @@ import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
 import Date from '../components/date'
+import Image from 'next/image'
 
 export default function Home({ allPostsData }) {
   return (
@@ -13,14 +14,59 @@ export default function Home({ allPostsData }) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          Hello, I’m <strong>Shu</strong>. I’m a software engineer and a
-          translator (English/Japanese). You can contact me on{' '}
-          <a href="https://twitter.com/chibicode">Twitter</a>.
+          Hello, I’m <strong>Syed Sadiq ali</strong>. I’m a software engineer
+          based in Delhi.
         </p>
-        <p>
-          (This is a sample website - you’ll be building a site like this in{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+      </section>
+      <section className={utilStyles.headingMd}>
+        <h2 className={utilStyles.headingLg}>Social</h2>
+        <div className={utilStyles.icons}>
+          <Link href='https://twitter.com/alisyedsadiq1'>
+            <a target='_blank'>
+              <Image
+                priority
+                src='/images/twitter.png'
+                className={utilStyles.borderCircle}
+                height={40}
+                width={40}
+              />
+            </a>
+          </Link>
+          <Link href='https://www.youtube.com/channel/UC0w4anyPMuVYVaQUAJrH9Pg'>
+            <a target='_blank'>
+              <Image
+                priority
+                src='/images/youtube.png'
+                className={utilStyles.borderCircle}
+                height={40}
+                width={40}
+              />
+            </a>
+          </Link>
+          <Link href='https://github.com/syedsadiqali'>
+            <a target='_blank'>
+              <Image
+                priority
+                src='/images/github.png'
+                className={utilStyles.borderCircle}
+                height={40}
+                width={40}
+              />
+            </a>
+          </Link>
+          <Link href='https://www.linkedin.com/in/syed-sadiq-ali/'>
+            <a target='_blank'>
+              <Image
+                priority
+                src='/images/linkedin.png'
+                className={utilStyles.borderCircle}
+                height={40}
+                width={40}
+              />
+            </a>
+          </Link>
+          
+        </div>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
@@ -46,7 +92,7 @@ export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
   return {
     props: {
-      allPostsData
-    }
+      allPostsData,
+    },
   }
 }
