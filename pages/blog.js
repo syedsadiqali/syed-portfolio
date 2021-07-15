@@ -14,9 +14,9 @@ export default function Blog({ allPostsData }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`/${id}`}>
+          {allPostsData.map(({ slug, date, title }) => (
+            <li className={utilStyles.listItem} key={slug}>
+              <Link href={`/${slug}`}>
                 <a>{title}</a>
               </Link>
               <br />
@@ -32,7 +32,7 @@ export default function Blog({ allPostsData }) {
 }
 
 export async function getStaticProps() {
-  const allPostsData = getAllPosts()
+  const allPostsData = getAllPosts(['slug', 'content', 'date', 'title'])
   return {
     props: {
       allPostsData,
