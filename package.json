@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "date-fns": "2.23.0",
     "mdx-bundler": "^6.0.1",
     "next": "11.1",
     "react": "17.0.2",
