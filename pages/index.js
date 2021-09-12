@@ -4,9 +4,9 @@ import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 import Date from '../components/date'
 import Image from 'next/image'
-import {getAllPosts} from '../lib/posts'
+import {getAllFilesFrontMatter} from '../lib/mdx'
 
-export default function Home({ allPostsData }) {
+export default function Home({ posts }) {
   return (
     <Layout home>
       <Head>
@@ -65,23 +65,25 @@ export default function Home({ allPostsData }) {
               />
             </a>
           </Link>
-          
         </div>
       </section>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {allPostsData.map(({ slug, date, title }) => (
-            <li className={utilStyles.listItem} key={slug}>
-              <Link href={`/${slug}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} />
-              </small>
-            </li>
-          ))}
+          {posts.map(
+            ({ slug, date, title, draft }) =>
+              !draft && (
+                <li className={utilStyles.listItem} key={slug}>
+                  <Link href={`/${slug}`}>
+                    <a>{title}</a>
+                  </Link>
+                  <br />
+                  <small className={utilStyles.lightText}>
+                    <Date dateString={date} />
+                  </small>
+                </li>
+              )
+          )}
         </ul>
       </section>
     </Layout>
@@ -89,11 +91,7 @@ export default function Home({ allPostsData }) {
 }
 
 export async function getStaticProps() {
-  const allPostsData = getAllPosts(["slug", "content", "date", "title"])
+  const posts = await getAllFilesFrontMatter('blog');
 
-  return {
-    props: {
-      allPostsData,
-    },
-  }
+  return { props: { posts } };
 }

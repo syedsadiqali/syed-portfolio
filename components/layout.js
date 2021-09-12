@@ -24,7 +24,7 @@ export default function Layout({ children, home }) {
         />
         <meta name='og:title' content={siteTitle} />
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='og:description' content='description'></meta>
+        <meta name='og:description' content='description' />
       </Head>
       <header className={styles.header}>
         <div className={utilStyles.Navbar}>

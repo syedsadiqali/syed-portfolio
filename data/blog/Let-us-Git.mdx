@@ -1,0 +1,115 @@
+---
+title: Let us Git?
+description: How much Git you know and How much you need to know? See by this little Story
+date: '2018-11-18'
+categories: []
+keywords: []
+---
+```bash
+$ git clone https://github.com/leerob/leerob.io.git
+$ cd leerob.io
+$ yarn
+$ yarn dev
+```
+
+git is like, an awesome tool build by this person called Linus Torvalds.
+
+![](/images/0__HFTiG6f__frcXUrDj.jpg)
+
+He made one another thing that’s awesome, that’s helping at least everyone who is using the internet or any device in his hand, it’s the probability of being built on Linux is Really High.
+
+Now coming to Git Learning, In this article, the path of learning Git is like What is Git -> Git Basics -> Git Daily Uses (What you need to know, to get Going Now) -> Git it (some things for you to do)
+
+at the end of the article, I’ll link to some tools and blogs, I’ve taken reference from or I had learned when I was just starting out with Git.
+
+### What is Git
+
+Git is a traditional VCS or longs for Version Control System.
+
+Imagine building software, with source code distributed among tens or hundreds of developers, each making their own breaking change on it (changing the same file). It’s really hard for the maintainer to put a final version out of it for release.
+
+Previously people used to maintain code by Hand, building full new Directories and merging them by Hand, every project had a master copy that nobody else can change.
+
+VCS made it simple, so simple that I can teach you how to do this in like the next 5 minutes. you can use git or any other VCS, but we will focus on git.
+
+by using Git each copy of the directory is a **branch** and every new branch can be merged back to any other branch. every change needs to have a message usually called **commit message** this tells what changes did the contributor did, we can view the diff, and Git system can automatically tell us which breaking changes are there (if any).
+
+too many details in What is Section? this was Basic let’s go to the next thing.
+
+### Git Basics
+
+A repository is like a folder of files, it’s a term used to denote a Project in Git System.
+
+create a new repository `git init`
+
+### Branch
+
+The branch is a Working copy of Repository inside the Repository, you don’t need to go out.
+
+create a new branch off another branch `git checkout -b feature master`
+
+### Remote
+
+Remote is cloud Location where your repository can be stored, git can awesomely use remotes.
+
+clone a repository from remote `git clone username@host:/path/to/repository`
+
+### Staging Area
+
+Staging Area is where you make all your changes even before you commit it to your own branch or the feature branch. Git maintains three _Trees_ a **Working Directory**, an **Index** or Staging area, and Finally a **Head** that points to last commit you have made.
+
+add changes to Index `git add <filenames>` or `git add .` (for all changes)
+
+### Commit
+
+Commit is like adding your changes to your Branch. all the Indexed Changes will be added to the Branch with this step.
+
+commit your changes `git commit -m "commit message"`
+
+now your changes are in the head but not yet on the remote repository
+
+### Pushing changes to Remote
+
+You can push your changes to a remote server by using these commands.
+
+add a remote `git remote add origin <server>`
+
+here `origin` is the name of remote
+
+push changes to remote `git push <origin-name> <branch to push>`
+
+### Pulling Remote Changes to your local Repository
+
+You can also pull changes to your branch by other developers. use the following commands.
+
+pull changes to current branch `git pull`
+
+merge another by `git merge <branch>`
+
+### Git Daily Use Cases
+
+As a developer daily using git, you need to know basically what are the things you should do, rest you can google, the list is very about git commands and usages, most common things are adding a remote, pulling changes from the server, making local changes, adding local changes to Staging Area, Commuting them to Head and Pushing them to Server.
+
+this is the usual thing you need to know.
+
+Superfast commands revision
+
+`git remote add origin <remote-url>`
+
+`git checkout <branch>` (checkout to required branch)
+
+or make a new branch `git checkout -b <branch-name> <source-branch>`
+
+make some local changes
+
+`git add .` (add all local changes)
+
+`git commit -m "commit message"` (add them to HEAD)
+
+`git push origin <branch-name>`
+
+### Final Count
+
+finally, I want to tell you don’t ever hesitate to try something, we humans usually can’t remember many things, same with any profession and technology. When I first started to try git, it looks like Big, same you will find, just Google any problem You, IMHO **Never try to drink All the Content**, _First try to do it, especially in our Field_
+
+> _Doing is Everything -Unknown_
