@@ -71,7 +71,7 @@ export default function Layout({ children, home }) {
           alt={name}
         />
         {home ? (
-          <h1 className={utilStyles.heading2Xl}>Hello I'm  <br/> <strong>{name}</strong></h1>
+          <h1 className={utilStyles.heading2Xl}>Hello I am  <br/> <strong>{name}</strong></h1>
         ) : (
           <>
             <h2 className={utilStyles.headingLg}>
