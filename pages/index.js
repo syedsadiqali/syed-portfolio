@@ -14,8 +14,12 @@ export default function Home({ posts }) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>
-          Hello, I’m <strong>Syed Sadiq ali</strong>. I’m a software engineer
-          based in Delhi.
+          I’m a software engineer based in Delhi. I have been working with{' '}
+          <strong>Javscript</strong> and <strong>Python</strong> for almost 3
+          Years. <br />I have been part of amazing products like{' '}
+          <strong>PoolMyRide</strong>,<strong>TravelClan</strong>,{' '}
+          <strong>Routier</strong> and lately <strong>Applause</strong>. <br />{' '}
+          I am learing DSA and Algorithms for the next part of my Career.
         </p>
       </section>
       <section className={utilStyles.headingMd}>
@@ -78,7 +82,7 @@ export default function Home({ posts }) {
             ({ slug, date, title, draft }) =>
               !draft && (
                 <li className={utilStyles.listItem} key={slug}>
-                  <Link href={`/${slug}`}>
+                  <Link href={`/blog/${slug}`}>
                     <a>{title}</a>
                   </Link>
                   <br />

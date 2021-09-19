@@ -1,5 +1,14 @@
-import '../styles/global.scss'
+import { ThemeProvider } from 'next-themes'
+import 'tailwindcss/tailwind.css'
+import '../styles/globals.css'
 
-export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
 }
+
+export default MyApp

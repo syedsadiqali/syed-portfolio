@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
-import {getFileBySlug, getFiles} from '../lib/mdx';
-import Layout from '../components/layout';
+import {getFileBySlug, getFiles} from '../../lib/mdx';
+import Layout from '../../components/layout';
 import Head from 'next/dist/shared/lib/head';
-import utilStyles from '../styles/utils.module.css'
-import Date from '../components/date';
+import utilStyles from '../../styles/utils.module.css'
+import Date from '../../components/date';
 
 export default function Post({ code, frontMatter }) {
   const Component = useMemo(() => getMDXComponent(code), [code]);

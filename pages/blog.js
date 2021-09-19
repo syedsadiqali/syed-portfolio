@@ -18,7 +18,7 @@ export default function Blog({ posts }) {
             ({ slug, date, title, draft }) =>
               !draft && (
                 <li className={utilStyles.listItem} key={slug}>
-                  <Link href={`/${slug}`}>
+                  <Link href={`/blog/${slug}`}>
                     <a>{title}</a>
                   </Link>
                   <br />

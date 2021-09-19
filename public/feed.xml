@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title><![CDATA[Syed Sadiq ali]]></title>
+        <description><![CDATA[Syed Sadiq ali]]></description>
+        <link>https://syed.vercel.app</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Sun, 19 Sep 2021 05:50:47 GMT</lastBuildDate>
+        <atom:link href="https://syed.vercel.app/feed.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[CSS Flexbox Interactive Tutorial in 8 Minutes including Cheat Sheet]]></title>
+            <description><![CDATA[Flexbox is a tricky part in modern CSS but believe me understanding and using it is worth it, it solves much layout problems.]]></description>
+            <link>https://syed.vercel.app/blog/CSS-Flexbox-Interactive-Tutorial-in-8-Minutes-including-Cheat-Sheet-6214e00de3d2</link>
+            <guid isPermaLink="true">https://syed.vercel.app/blog/CSS-Flexbox-Interactive-Tutorial-in-8-Minutes-including-Cheat-Sheet-6214e00de3d2</guid>
+            <pubDate>Fri, 22 Sep 2017 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[How to host multiple sites on a single nginx Server using server blocks]]></title>
+            <description><![CDATA[nginx is really fast, battle tested server, you can host anything on it.]]></description>
+            <link>https://syed.vercel.app/blog/How-to-host-multiple-sites-on-a-single-nginx-Server-using-server-blocks</link>
+            <guid isPermaLink="true">https://syed.vercel.app/blog/How-to-host-multiple-sites-on-a-single-nginx-Server-using-server-blocks</guid>
+            <pubDate>Sun, 18 Nov 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Let us Git?]]></title>
+            <description><![CDATA[How much Git you know and How much you need to know? See by this little Story]]></description>
+            <link>https://syed.vercel.app/blog/Let-us-Git</link>
+            <guid isPermaLink="true">https://syed.vercel.app/blog/Let-us-Git</guid>
+            <pubDate>Sun, 18 Nov 2018 00:00:00 GMT</pubDate>
+        </item>
+        <item>
+            <title><![CDATA[Sublime Text 3 and Live Reload with Auto Saving features]]></title>
+            <description><![CDATA[Hot Module Replacement in Webpack is pretty vast concept, but what for small developers, who don’t use webpack. Here is what you can do to…]]></description>
+            <link>https://syed.vercel.app/blog/Sublime-Text-3-and-Live-Reload-with-Auto-Saving-features</link>
+            <guid isPermaLink="true">https://syed.vercel.app/blog/Sublime-Text-3-and-Live-Reload-with-Auto-Saving-features</guid>
+            <pubDate>Thu, 28 Sep 2017 00:00:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
