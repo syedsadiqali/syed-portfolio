@@ -27,7 +27,7 @@ export default function Layout({ children, home }) {
         <meta name="description" content="Portfolio Website | Syed Sadiq ali" />
 
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://syed.vercel.app/" />
+        <meta property="og:url" content="https://syedsadiqali.com/" />
         <meta property="og:title" content="Portfolio Site | Syed Sadiq ali" />
         <meta
           property="og:description"
@@ -36,7 +36,7 @@ export default function Layout({ children, home }) {
         <meta property="og:image" content={`/images/profile.jpg`} />
 
         <meta property="twitter:card" content="summary_large_image" />
-        <meta property="twitter:url" content="https://syed.vercel.app/" />
+        <meta property="twitter:url" content="https://syedsadiqali.com/" />
         <meta
           property="twitter:title"
           content="Portfolio Site | Syed Sadiq ali"

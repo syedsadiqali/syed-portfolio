@@ -17,7 +17,7 @@ async function generate() {
 
     feed.item({
       title: frontmatter.data.title,
-      url: 'https://syed.vercel.app/blog/' + name.replace(/\.mdx?/, ''),
+      url: 'https://syedsadiqali.com/blog/' + name.replace(/\.mdx?/, ''),
       date: frontmatter.data.date,
       description: frontmatter.data.description
     });

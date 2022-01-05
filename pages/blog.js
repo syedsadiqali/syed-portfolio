@@ -7,7 +7,7 @@ import {getAllFilesFrontMatter} from '../lib/mdx'
 
 export default function Blog({ posts }) {
   return (
-    <Layout home>
+    <Layout>
       <Head>
         <title>{siteTitle}</title>
       </Head>
