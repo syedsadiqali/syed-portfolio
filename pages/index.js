@@ -15,11 +15,11 @@ export default function Home({ posts }) {
       <section className={utilStyles.headingMd}>
         <p>
           I’m a software engineer based in Delhi. I have been working with{' '}
-          <strong>Javscript</strong> and <strong>Python</strong> for almost 3
+          <strong>Javascript</strong> and <strong>Python</strong> for almost 3
           Years. <br />I have been part of amazing products like{' '}
-          <strong>PoolMyRide</strong>,<strong>TravelClan</strong>,{' '}
+          <strong>PoolMyRide</strong>, <strong>TravelClan</strong>, {' '}
           <strong>Routier</strong> and lately <strong>Applause</strong>. <br />{' '}
-          I am learing DSA and Algorithms for the next part of my Career.
+          I am learning DSA and Algorithms for the next part of my Career.
         </p>
       </section>
       <section className={utilStyles.headingMd}>
