@@ -27,7 +27,7 @@ const NavBar = () => {
             Home
           </a>
         </Link>
-        <Link href="/blog" className={styles.navItem}>
+        <Link href="https://blog.syedsadiqali.com" className={styles.navItem}>
           <a
             className={`${
               router.pathname.startsWith('/blog') ? styles.active : null

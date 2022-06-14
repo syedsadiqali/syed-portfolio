@@ -4,7 +4,8 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import Date from '../components/date';
 import Image from 'next/image';
-import { getAllFilesFrontMatter } from '../lib/mdx';
+import { GET_USER_ARTICLES, gql } from '../lib/graphql';
+import { useEffect } from 'react';
 
 export default function Home({ posts }) {
   return (
@@ -12,12 +13,13 @@ export default function Home({ posts }) {
       <Head>
         <title>{siteTitle}</title>
       </Head>
+
       <section className={utilStyles.headingMd}>
         <p>
           I’m a software engineer based in Delhi. I have been working with{' '}
           <strong>Javascript</strong> and <strong>Python</strong> for almost 3
           Years. <br />I have been part of amazing products like{' '}
-          <strong>PoolMyRide</strong>, <strong>TravelClan</strong>, {' '}
+          <strong>PoolMyRide</strong>, <strong>TravelClan</strong>,{' '}
           <strong>Routier</strong> and lately <strong>Applause</strong>. <br />{' '}
           I am learning DSA and Algorithms for the next part of my Career.
         </p>
@@ -78,20 +80,17 @@ export default function Home({ posts }) {
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
-          {posts.map(
-            ({ slug, date, title, draft }) =>
-              !draft && (
-                <li className={utilStyles.listItem} key={slug}>
-                  <Link href={`/blog/${slug}`}>
-                    <a>{title}</a>
-                  </Link>
-                  <br />
-                  <small className={utilStyles.lightText}>
-                    <Date dateString={date} />
-                  </small>
-                </li>
-              )
-          )}
+          {posts?.map(({ bried, dateAdded, slug, title }) => (
+            <li className={utilStyles.listItem} key={slug}>
+              <Link href={`https://blog.syedsadiqali.com/${slug}`}>
+                <a>{title}</a>
+              </Link>
+              <br />
+              <small className={utilStyles.lightText}>
+                <Date dateString={dateAdded} />
+              </small>
+            </li>
+          ))}
         </ul>
       </section>
     </Layout>
@@ -99,7 +98,9 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('blog');
-
-  return { props: { posts } };
+  return gql(GET_USER_ARTICLES, { page: 0 })
+    .then((result) => {
+      return { props: { posts: result.data.user.publication.posts } };
+    })
+    .catch((err) => console.log(err));
 }

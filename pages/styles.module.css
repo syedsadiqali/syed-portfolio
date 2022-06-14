@@ -1,0 +1,24 @@
+.gradient1 {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+
+
+	background: linear-gradient(113.43deg, #F96450 17.36%, rgba(214, 155, 5, 0.42) 101.34%);
+	box-shadow: 4px 4px 10px rgba(213, 168, 168, 0.25);
+	border-radius: 211px;
+	transform: rotate(-16deg);
+
+}
+
+.gradient2 {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+
+
+	background: #F96450;
+	opacity: 0.4;
+	border-radius: 211px;
+	transform: rotate(-18deg);
+}
