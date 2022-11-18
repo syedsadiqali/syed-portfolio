@@ -18,33 +18,31 @@ const NavBar = () => {
     <nav className={styles.NavBar}>
       <div className={styles.gradient}> </div>
       <div className={styles.mainNav}>
-        <Link href="/">
-          <a
-            className={`${
+        <Link href="/" className={`${
               router.pathname.startsWith('/') ? styles.active : null
-            } ${styles.navItem}`}
-          >
+            } ${styles.navItem}`}>
+
             Home
-          </a>
+          
         </Link>
         <Link href="https://blog.syedsadiqali.com" className={styles.navItem}>
-          <a
-            className={`${
+         
+            {/* className={`${
               router.pathname.startsWith('/blog') ? styles.active : null
-            } ${styles.navItem}`}
-          >
+            } ${styles.navItem}`} */}
+          
             Blog
-          </a>
+          
         </Link>
         <Link href="/projects" className={styles.navItem}>
-          <a
+          {/* <a
             className={`${
               router.pathname.startsWith('/projects') ? styles.active : null
             } ${styles.navItem}`}
             color="white"
-          >
+          > */}
             Projects
-          </a>
+          {/* </a> */}
         </Link>
       </div>
 

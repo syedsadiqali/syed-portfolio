@@ -8,7 +8,13 @@ import NavBar from './NavBar/NavBar';
 const name = 'Syed Sadiq ali';
 export const siteTitle = 'Portfolio Site | Syed Sadiq ali';
 
-export default function Layout({ children, home }) {
+export default function Layout({
+  children,
+  home
+}: {
+  children: any;
+  home?: any;
+}) {
   return (
     <div>
       <Head>
@@ -37,7 +43,11 @@ export default function Layout({ children, home }) {
           content="Portfolio Site | Syed Sadiq ali"
         />
         <meta property="twitter:image" content={`/images/profile.jpg`} />
-        <script data-ad-client="ca-pub-9828437605574984" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script
+          data-ad-client="ca-pub-9828437605574984"
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        ></script>
       </Head>
       <NavBar />
       {/* <header className={styles.header}>
@@ -49,9 +59,7 @@ export default function Layout({ children, home }) {
 
         {!home && (
           <div className={styles.backToHome}>
-            <Link href="/">
-              <a>← Back to home</a>
-            </Link>
+            <Link href="/">← Back to home</Link>
           </div>
         )}
       </main>
