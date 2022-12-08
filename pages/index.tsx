@@ -11,6 +11,7 @@ export default function Home({ posts }) {
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
+        <script async id="slcLiveChat" src="https://widget.sonetel.com/SonetelWidget.min.js" data-account-id="208131002"></script>
       </Head>
 
       <section className={utilStyles.headingMd}>
