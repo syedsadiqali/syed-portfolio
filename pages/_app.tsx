@@ -7,6 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     // @ts-ignore
     <ThemeProvider >
       <Component {...pageProps} />
+      
     </ThemeProvider>
   );
 }
