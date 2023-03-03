@@ -84,11 +84,11 @@ jobs:
         run: echo "::set-output name=name::${{ github.sha }}-${{ github.run_number }}.zip"
 
       - id: bundle-package
-        run: zip -r build/${{ steps.zip-params.outputs.name }} build/
+        run: zip -r .next/${{ steps.zip-params.outputs.name }} .next/
 
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.zip-params.outputs.name }}
-          path: build/${{ steps.zip-params.outputs.name }}
+          path: .next/${{ steps.zip-params.outputs.name }}
           if-no-files-found: error
           retention-days: 1
