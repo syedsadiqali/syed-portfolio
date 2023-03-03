@@ -86,7 +86,7 @@ jobs:
       - id: bundle-package
         run: |
           mkdir build
-          zip -r .next/${{ steps.zip-params.outputs.name }} build/
+          zip -r build/${{ steps.zip-params.outputs.name }} .next/
 
       - uses: actions/upload-artifact@v3
         with:
