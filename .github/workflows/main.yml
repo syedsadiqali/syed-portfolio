@@ -30,9 +30,9 @@ jobs:
       - id: set-creds
         name: set artifactory credentials
         run: |
-          TEXT_TO_COPY="@clutch:registry=${{ env.arty_npmrc_registry:-https://artifactory.coxautoinc.com/clutch-npm/ }} \n
-          //artifactory.coxautoinc.com/clutch-npm/:_authToken=${{ secrets.ARTY_NPMRC_TOKEN:- }} \n
-          //artifactory.coxautoinc.com/clutch-npm-local/:_authToken=${{ secrets.ARTY_NPMRC_TOKEN:- }} \n
-          email=${{ secrets.ARTY_NPRMC_EMAIL:-rory.kiefer@driveclutch.com }} \n
+          TEXT_TO_COPY="@clutch:registry=${{ env.arty_npmrc_registry }} \n
+          //artifactory.coxautoinc.com/clutch-npm/:_authToken=${{ secrets.ARTY_NPMRC_TOKEN }} \n
+          //artifactory.coxautoinc.com/clutch-npm-local/:_authToken=${{ secrets.ARTY_NPMRC_TOKEN }} \n
+          email=${{ secrets.ARTY_NPRMC_EMAIL }} \n
           always-auth=true \n"
           echo "TEXT_TO_COPY<<EOF" > ~/.npmrc
