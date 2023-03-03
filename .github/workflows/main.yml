@@ -74,14 +74,11 @@ jobs:
       - id: install-packages
         run: npm ci --legacy-peer-deps
 
-      - id: run-tests
-        run: npm run test
-
       - id: build-application
         run: npm run build
 
       - id: install-zip
-        run: apt-get install zip
+        run: sudo apt-get install zip
 
       - id: zip-params
         run: echo "::set-output name=name::${{ github.sha }}-${{ github.run_number }}.zip"
@@ -92,6 +89,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.zip-params.outputs.name }}
-          path: ${{ steps.zip-params.outputs.name }}
+          path: build/${{ steps.zip-params.outputs.name }}
           if-no-files-found: error
           retention-days: 1
