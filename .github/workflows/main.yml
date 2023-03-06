@@ -24,9 +24,6 @@ env:
 jobs:
   test-ui:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./scripts
     steps:
       - uses: actions/checkout@v3
 
@@ -76,21 +73,18 @@ jobs:
 
       - id: build-application
         run: npm run build
+        
+      - id: archive-params
+        run: echo "::set-output name=name::${{ github.sha }}-${{ github.run_number }}.tar.xz"
+        
+      - id: archive
+        run: tar cf - .next | xz -4e > "${{ steps.archive-params.outputs.name }}"
 
-      - id: install-zip
-        run: sudo apt-get install zip
-
-      - id: zip-params
-        run: echo "::set-output name=name::${{ github.sha }}-${{ github.run_number }}.zip"
-
-      - id: bundle-package
-        run: |
-          mkdir build
-          zip -r build/${{ steps.zip-params.outputs.name }} .next/
+      - run: ls -lah
 
       - uses: actions/upload-artifact@v3
         with:
-          name: ${{ steps.zip-params.outputs.name }}
-          path: build/${{ steps.zip-params.outputs.name }}
+          name: ${{ steps.archive-params.outputs.name }}
+          path: ${{ steps.archive-params.outputs.name }}
           if-no-files-found: error
           retention-days: 1
