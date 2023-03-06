@@ -23,8 +23,8 @@ export default function Home({ posts }) {
           amazing products like <strong>PoolMyRide</strong>,{' '}
           <strong>TravelClan</strong>, <strong>Routier</strong>,{' '}
           <strong>Applause</strong> and lately working as a{' '}
-          <strong>Senior Engineer</strong> with <strong>Nagarro</strong>. <br /> I am learning
-          DSA and Algorithms for the next part of my Career.
+          <strong>Senior Engineer</strong> with <strong>Nagarro</strong>. <br />{' '}
+          I am learning DSA and Algorithms for the next part of my Career.
         </p>
       </section>
 
@@ -53,7 +53,10 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   return gql(GET_USER_ARTICLES, { page: 0 })
     .then((result) => {
-      return { props: { posts: result.data.user.publication.posts } };
+      return {
+        props: { posts: result.data.user.publication.posts },
+        revalidate: 10
+      };
     })
     .catch((err) => console.log(err));
 }
