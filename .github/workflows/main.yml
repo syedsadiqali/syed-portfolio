@@ -38,6 +38,6 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: ${{ steps.archive-params.outputs.name }}
-          path: ${{ steps.archive-params.outputs.name }}
+          path: tester/${{ steps.archive-params.outputs.name }}
           if-no-files-found: error
           retention-days: 1
