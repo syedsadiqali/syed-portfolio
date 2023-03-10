@@ -24,34 +24,36 @@ jobs:
         working-directory: ./tester
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Cache NPM
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-npm
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: |
+            ~/.npm
+            ./node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
             
       - run: ls -lah
-
-      - id: archive-params
-        run: echo "::set-output name=name::${{ github.sha }}-${{ github.run_number }}.tar.xz"
-
-      - id: archive
-        run: tar cf - build | xz -4e > "${{ steps.archive-params.outputs.name }}"
-
-      - run: ls -lah
-
-      - uses: actions/upload-artifact@v3
+            
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
         with:
-          name: ${{ steps.archive-params.outputs.name }}
-          path: tester/${{ steps.archive-params.outputs.name }}
-          if-no-files-found: error
-          retention-days: 1
-          
-          
-  test-job:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-       working-directory: ./tester
-    steps:
-      - uses: actions/checkout@v3
-      - name: Download a Build Artifact
-        uses: actions/download-artifact@v3.0.2
-      - run: ls -lah
+          node-version: 16
+
+      - id: update-NPM
+        name: Update NPM
+        run: npm install -g npm@8.9.0 -f
         
-      - run: xz -dc  | tar -xv
+      - run: ls -lah
+
+      - if: steps.cache-npm.outputs.cache-hit != 'true'
+        id: install-packages
+        run: npm ci --legacy-peer-deps
