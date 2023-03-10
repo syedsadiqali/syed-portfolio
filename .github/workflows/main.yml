@@ -52,8 +52,13 @@ jobs:
         name: Update NPM
         run: npm install -g npm@8.9.0 -f
         
-      - run: ls -lah
+      - run: |
+          ls -lah
+          cd ..
+          ls -lah
 
       - if: steps.cache-npm.outputs.cache-hit != 'true'
         id: install-packages
         run: npm ci --legacy-peer-deps
+        
+      - run: npm run dev
