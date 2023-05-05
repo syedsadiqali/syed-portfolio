@@ -16,7 +16,7 @@ export default function Home({ posts }) {
 
       <section className={utilStyles.headingMd}>
         <p>
-          I’m a software engineer based in Delhi. I have been working with{' '}
+          Im a software engineer based in Delhi. I have been working with{' '}
           <strong>Javascript</strong>, <strong>TypeScript</strong>,
           <strong> ReactJS</strong>, <strong>ReduxJS</strong> and{' '}
           <strong> VueJS</strong> for past 5 Years. <br /> I have been part of
