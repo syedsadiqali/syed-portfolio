@@ -14,7 +14,7 @@ module.exports = {
 // https://securityheaders.com
 const ContentSecurityPolicy = `
 	default-src 'self';
-	script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com *.googlesyndication.com *.sonetel.com;
+	script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com cdn.usefathom.com *.googlesyndication.com *.sonetel.com *.vercel.live vercel.live;
 	child-src *.youtube.com *.google.com *.twitter.com;
 	style-src 'self' 'unsafe-inline' *.googleapis.com;
 	img-src * blob: data:;
