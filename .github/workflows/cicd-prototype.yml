@@ -23,7 +23,7 @@ permissions:
 jobs:
 
   build-clutchtech-internal-ui:
-    environment: ${{ github.event.inputs.environment == 'prod' && github.event.inputs.version }}
+    environment: ${{ github.event.inputs.environment == 'prod' && github.event.inputs.environment }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -64,5 +64,3 @@ jobs:
       - if: steps.cache-npm.outputs.cache-hit != 'true'
         id: install-packages
         run: npm ci --legacy-peer-deps
-        
-      - run: npm run dev
