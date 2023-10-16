@@ -1,0 +1,68 @@
+name: cicd-prototype.yml
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        default: "stage"
+        required: true
+        type: choice
+        options:
+          - stage
+          - prod
+
+# If more than one workflow for the same ref are triggered, cancel the oldest
+# head_ref is the branch the pull_request was made from, otherwise it's branch the workflow is trigger on (for push)
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+
+  build-clutchtech-internal-ui:
+    environment: ${{ github.event.inputs.environment == 'prod' && github.event.inputs.version }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Cache NPM
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-npm
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: |
+            ~/.npm
+            ./node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+            
+      - run: ls -lah
+      
+      - run: echo ${{ github.event.inputs.environment }}
+            
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - id: update-NPM
+        name: Update NPM
+        run: npm install -g npm@8.9.0 -f
+        
+      - run: |
+          ls -lah
+          cd ..
+          ls -lah
+      - if: steps.cache-npm.outputs.cache-hit != 'true'
+        id: install-packages
+        run: npm ci --legacy-peer-deps
+        
+      - run: npm run dev
